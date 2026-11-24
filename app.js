@@ -90,5 +90,16 @@
   }
   mapy(false);
 
+  // filmy: YouTube ladowany dopiero po kliknieciu w kadr
+  d.querySelectorAll('.film[data-yt] .film-k').forEach(function(k){
+    k.addEventListener('click',function(){
+      var id=k.parentNode.getAttribute('data-yt'),i=d.createElement('iframe');
+      i.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0';
+      i.title=k.getAttribute('aria-label').replace('Odtwórz film: ','');
+      i.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';i.allowFullscreen=true;
+      var w=d.createElement('div');w.className='film-k';w.appendChild(i);k.replaceWith(w);
+    });
+  });
+
   var r=d.getElementById('rok');if(r)r.textContent=new Date().getFullYear();
 })();
