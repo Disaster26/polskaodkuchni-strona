@@ -54,7 +54,7 @@
     d.querySelectorAll('.grupa').forEach(function(g){g.hidden=!g.querySelector('.lau li:not([hidden])');});
     if(fo)fo.textContent='Pozycji: '+ile;
   }
-  if(fm){fm.addEventListener('change',filtruj);var pm=new URLSearchParams(location.search).get('miasto');if(pm){fm.value=pm;filtruj();}}
+  if(fm){fm.addEventListener('change',filtruj);var pm=new URLSearchParams(location.search).get('miasto');if(pm){fm.value=pm;filtruj();}var cel=location.hash&&d.getElementById(location.hash.slice(1));if(cel)setTimeout(function(){cel.scrollIntoView({block:'center'});},60);}
   if(fq)fq.addEventListener('input',filtruj);
 
   // formularz (podglad bez wysylki)
