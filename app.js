@@ -66,7 +66,7 @@
     f.addEventListener('change',function(e){if(e.target.name==='typ')l.textContent=et[e.target.value];});
     var pt=new URLSearchParams(location.search).get('typ');if(pt&&et[pt])ustaw(pt);
     f.addEventListener('submit',function(e){e.preventDefault();
-      if(!f.checkValidity()){info.textContent='Uzupełnij wymagane pola: nazwę, e-mail i zgodę na kontakt.';return;}
+      if(!f.checkValidity()){info.textContent='Uzupełnij pola oznaczone gwiazdką i zaznacz zgodę na kontakt.';return;}
       info.textContent='To wersja testowa strony: formularz nie wysyła jeszcze danych. Zgłoszenia prosimy kierować na adres biuro@polskaodkuchni.com.pl.';});
   }
 
