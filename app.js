@@ -83,6 +83,7 @@
   function mapy(teraz){
     d.querySelectorAll('.mapa[data-src]').forEach(function(m){
       var b=m.querySelector('button');if(b)b.onclick=function(){wstaw(m);};
+      if(/(^|\.)wylinka-podglad\.pl$|github\.io$|^localhost$|^127\.0\.0\.1$/.test(location.hostname)){wstaw(m);return;}
       if(zgoda()==='nie'&&!teraz)return;
       if(!('IntersectionObserver' in window)){wstaw(m);return;}
       var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){wstaw(m);io.disconnect();}});},{rootMargin:'300px'});io.observe(m);
